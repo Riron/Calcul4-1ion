@@ -1,5 +1,9 @@
 node_modules
+node_modules_old
+node_modules_2
 dist
 .tmp
 .sass-cache
 app/bower_components
+test
+.gitignore
