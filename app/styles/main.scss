@@ -1,0 +1,398 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+/* Palette */
+$mightySlate: #556270;
+$pacificia: #4ECDC4;
+$appleChic: #C7F464;
+$cheeryPink: #FF6B6B;
+$grandmasPillow: #C44D58;
+
+
+$red-color: #DD4627;
+$background-color: #556270;
+$text-color: #FFFFFF;
+$background-topbar: #4ECDC4;
+$border-topbar: #556230;
+
+@import 'sass-bootstrap/lib/bootstrap';
+@import 'compass-mixins/lib/compass/css3/';
+
+@import "elegant-icon";
+@import "loader";
+
+/* Space out content a bit */
+body {
+    padding-top: 70px;
+    background-color: $background-color;
+    font-family: 'Roboto', sans-serif;
+}
+a:hover {
+    text-decoration: none;
+}
+h3{
+    font-size: 17px;
+}
+
+/* Top bar */
+.topbar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    background-color: $background-topbar;
+    border-bottom: 1px solid $border-topbar;
+    min-height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    z-index: 100;
+    .center-container {
+        text-align: center;
+    }
+    .left-container {
+        float: left;
+        margin-left: 15px;
+    }
+    .topbar-options {
+        float: right;
+        margin-right: 20px;
+    }
+    .topbar-options .button {
+        color: $mightySlate;
+        @include border-radius(4px);
+        background-color: #FFFFFF;
+        padding: 5px;
+    }
+    .score-container {
+        display: inline;
+        position: relative;
+    }
+    .score {
+        font-size: 16px;
+        padding: 3px 5px;
+        background-color: $appleChic;
+        @include border-radius(4px);
+        color: $mightySlate;
+        font-weight: bold;
+    }
+    .score-change {
+        line-height: 16px;
+        position: absolute;
+        top: -4px;
+        right: -12px;
+        border-radius: 15px;
+        background-color: $cheeryPink;
+        font-size: 15px;
+        padding: 2px;
+    }
+}
+
+/* Question */
+.question {
+    text-align: center;
+    @include border-radius(4px);
+    background-color: $cheeryPink;
+    margin-bottom: 15px;
+    font-size: 25px;
+    color: #FFFFFF;
+    .next {
+        color: #DDDDDD;
+        font-size: 18px;
+    }
+    .current {
+        border-top: 1px dashed $grandmasPillow;
+        border-bottom: 1px dashed $grandmasPillow;
+    }
+    .correct {
+        color: $appleChic;
+    }
+    .wrong {
+        color: $grandmasPillow;
+    }
+    p {
+        margin: 0 0 5px;
+    }
+}
+
+/* Keys */
+.keys-container {
+    @include border-radius(4px);
+    background-color: #FFFFFF;
+    color: $mightySlate;
+    font-size: 18px;
+    border: 1px solid transparent;
+    .key{
+        text-align: center;
+        display: inline-block;
+        width: 33.33%;
+        padding: 15px 0px;
+        border-bottom: 1px solid #DDDDDD;
+        border-right: 1px solid #DDDDDD;
+    }
+    .key:hover{
+        background-color: whitesmoke;
+    }
+}
+
+/* Home */
+.home-list a span {
+    float: right;
+}
+
+/* List */
+.list {
+    margin-bottom: 20px;
+    a {
+        color: $mightySlate;
+        display: block;
+        padding: 10px 15px;
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #DDDDDD;
+    }
+    a:hover {
+        background-color: whitesmoke;
+    }
+    a:before{
+        font-family: 'ElegantIcons';
+        content: "5";
+        float: right;
+    }
+    a span{
+        float: right;
+        font-size: 12px;
+        @include border-radius(4px);
+        border: 1px solid $mightySlate;
+        padding: 1px 5px;
+        margin-right: 5px;
+    }
+    :first-child {
+        @include border-top-radius(4px);
+    }
+    :last-child {
+        @include border-bottom-radius(4px);
+    }
+    .new-game {
+        background-color: $cheeryPink;
+        color: #FFFFFF;
+    }
+    a:hover.new-game {
+        background-color: #E06B6B;
+    }
+    h4 {
+        font-size: 17px;
+        margin: 0px;
+        font-weight: bold;
+    }
+    p {
+        color: #77818D;
+        margin: 0px;
+        font-size: 13px;
+    }
+}
+
+/* Game Ended */
+.game-ended {
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 150;
+    text-align: center;
+    margin-bottom: 20px;
+    .result {
+        font-size: 30px;
+        color: $appleChic;
+    }
+    .result-score {
+        display: block;
+        font-size: 70px;
+        line-height: 50px;
+    }
+    .social-networks {
+        margin-top: 20px;
+    }
+    .social-networks .facebook, .social-networks .twitter, .social-networks .google-plus {
+        display: inline-block;
+        width: 30%;
+        
+    }
+    .social-networks .facebook span , .social-networks .twitter span, .social-networks .google-plus span {
+        display: block;
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Results */
+.results {
+    text-align: center;
+    .player2 {
+        color: $cheeryPink;
+        margin-top: 0px;
+    }
+    .value{
+      font-size: 18px;
+      fill: white;
+    }
+    .units{
+      fill: rgb(175, 175, 175);
+      font-size: 12px;
+    }
+}
+
+/* Animations */
+.fade-out {
+    @include opacity(1);
+}
+.fade-out.ng-hide {
+    @include transition-duration(0.4s);
+    @include opacity(0);
+}
+.ng-hide-add,
+.ng-hide-remove {
+    display:block!important;
+}
+
+/* Progress bars */
+progress[value] {
+    /* Reset the default appearance */
+    @include appearance(none);
+    width: 70%;
+    height: 15px;
+}
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    @include border-radius(4px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+progress[value]::-webkit-progress-value {
+    background-color: $grandmasPillow;
+    @include border-radius(4px); 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+/* Login */
+.auth {
+    .title {
+        background-color: $cheeryPink;
+        @include border-top-radius(4px);
+    }
+    .title h2 {
+        font-size: 20px;
+        padding: 10px;
+        margin: 0;
+    }
+    .form {
+        padding: 10px;
+        background-color: $pacificia;
+        @include border-bottom-radius(4px);
+    }
+    .form .login {
+        margin-bottom: 10px;
+    }
+    .form .input-label {
+        display: inline-block;
+        width: 100px;
+    }
+    .form p.error {
+        color: $cheeryPink;
+    }
+    input {
+        @include border-radius(4px);
+        border: 0;
+    }
+    .button {
+        margin-top: 10px;
+        margin-left: 104px;
+    }
+}
+
+/* Challenge */
+.search {
+    form {
+        font-size: 0;
+    }
+    .search-bar .send {
+        font-family: 'ElegantIcons';
+        width: 15%;
+        font-size: 10px;
+        height: 25px;
+    }
+    .search-bar .text {
+        height: 25px;
+        width: 85%;
+        height: 25px;
+        padding: 0px 5px;
+    }
+    input {
+        border: 0;
+        font-size: 12px;
+    }
+    input:first-child {
+        @include border-left-radius(4px);
+    }
+    input:last-child {
+        @include border-right-radius(4px);
+    }
+    .search-bar {
+        text-align: center;
+    }
+
+    .search-results .list {
+        margin-top: 20px;
+    }
+}
+
+/* Pull to Refresh */
+.pull-to-refresh {
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: -70px auto 0;
+  margin-bottom: 30px;
+  padding: 0;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  -webkit-transition-duration: 400ms;
+  -moz-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -webkit-transition-property: margin;
+  -moz-transition-property: margin;
+  transition-property: margin;
+  // Make block visible to gpu scroll
+  -webkit-transform: translateZ(0px);
+  -moz-transform: translateZ(0px);
+  transform: translateZ(0px);
+}
+
+.pull-container {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Buttons */
+.button-block {
+    display: block;
+    margin: auto;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    color: $text-color;
+    background-color: $cheeryPink;
+    border-color: $grandmasPillow;
+}

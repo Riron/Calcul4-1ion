@@ -1,0 +1,36 @@
+<div id="page-loading" ng-show="loading">
+  <div class="loader"></div>
+</div>
+
+<nav class="topbar">
+	<div class="center-container">
+    Friends
+	</div>
+</nav>
+
+<div class="search">
+	<div class="search-bar">
+		<form ng-submit="searchFriends()">
+			<input type="text" class="text" name="q" ng-model="search" placeholder="Insert a player name...">
+			<input type="submit" class="send" value="U">
+		</form>
+	</div>
+	<div class="search-results">
+		<div class="list">
+			<a ng-repeat="friend in searchResults" ng-click="addFriend(friend._id)">
+				<span>Add</span>
+				{{friend.accounts[0].username}}
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="friend-list">
+	<h3>Friends</h3>
+	<div class="list">
+		<a ng-repeat="friend in friends" ng-click="playWith(friend.accounts[0].username)">
+			<span>Play</span>
+			{{friend.accounts[0].username}}
+		</a>
+	</div>
+</div>
